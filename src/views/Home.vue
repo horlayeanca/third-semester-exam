@@ -1,8 +1,8 @@
 <template>
-<div>
+<div class="mt-4">
     <form @submit.prevent="onSubmit" class="flex justify-center">
  <input type="text" v-model="username" placeholder="enter a github username" class="border-2 px-2 py-1 rounded">
- <button type="submit" @click="onSubmit" class="ml-2">Search</button>
+ <button type="submit" @click="onSubmit" class="ml-2 bg-red-600 px-4 py-2 rounded-md text-white hover:bg-slate-600 animate-pulse hover:animate-bounce hover:duration-700">Search</button>
  
  </form>
  <div class="flex justify-center mt-5">

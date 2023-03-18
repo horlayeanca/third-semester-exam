@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import RepoDetails from "../components/RepoDetails.vue";
+import Error404 from "../views/Error404.vue";
 
 const routes = [
   {
@@ -21,6 +22,11 @@ const routes = [
     path: "/repodetails",
     name: "repodetails",
     component: RepoDetails,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "Error404",
+    component: Error404,
   },
 ];
 
