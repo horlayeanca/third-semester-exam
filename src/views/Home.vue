@@ -1,30 +1,32 @@
 <template>
 <div>
-    <form @submit.prevent="onSubmit">
- <input type="text" v-model="username" placeholder="enter a github username here..">
- <button type="submit" @click="onSubmit">Search</button>
- <p>{{ username }}</p>
+    <form @submit.prevent="onSubmit" class="flex justify-center">
+ <input type="text" v-model="username" placeholder="enter a github username" class="border-2 px-2 py-1 rounded">
+ <button type="submit" @click="onSubmit" class="ml-2">Search</button>
+ 
  </form>
- <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>URL</th>
-                <th>Language</th>
-                <th>Login</th>
+ <div class="flex justify-center mt-5">
+ <table class="w-4/5 rounded-lg overflow-auto shadow-sm">
+        <thead class="bg-gray-50 border-b-2 border-gray-200">
+            <tr class="">
+                <th class="py-3 text-sm font-semibold tracking-wide text-center">ID</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center">Name</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center">URL</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center">Language</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center">Login</th>
             </tr>
         </thead>
-        <tbody>
-            <tr v-for="repo in repos" :key="repo.id">
-            <td>{{ repo.id }}</td>
-            <td>{{ repo.name }}</td>
-            <td>{{ repo.html_url }}</td>
-            <td>{{ repo.language }}</td>
-            <td>{{ repo.owner.login }}</td>
+        <tbody class="divide-y divide-gray-100">
+            <tr v-for="repo in repos" :key="repo.id" class="bg-gray-300">
+            <td class="p-3 text-sm w-32">{{ repo.id }}</td>
+            <td class="p-3 text-sm text-left w-40"> <router-link    to="/repodetails" class="text-blue-700 hover:text-green-500 transition-all">{{ repo.name }} </router-link> </td>
+            <td class="p-3 text-sm text-left">{{ repo.html_url }}</td>
+            <td class="p-3 text-sm w-32">{{ repo.language }}</td>
+            <td class="p-3 text-sm w-32">{{ repo.owner.login }}</td>
             </tr>
         </tbody>
     </table>
+</div>
 </div>
 </template>
 
@@ -45,7 +47,11 @@ export default {
             axios.get(`https://api.github.com/users/${this.username}/repos`)
             .then(response => {
                 this.repos = response.data
+                this.username = ''
             })
+            if(this.username === '') {
+                alert('Please enter a username')
+            }
         }
     }
 }

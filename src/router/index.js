@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import Repository from "../views/Repository.vue";
+import RepoDetails from "../components/RepoDetails.vue";
 
 const routes = [
   {
@@ -18,9 +18,9 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: "/repository",
-    name: "repository",
-    component: Repository,
+    path: "/repodetails",
+    name: "repodetails",
+    component: RepoDetails,
   },
 ];
 
