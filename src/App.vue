@@ -10,10 +10,13 @@
 
 </template>
 <script>
+import RepositoryVue from './views/Repository.vue'
 export default {
   name: 'App',
   components: {
+    RepositoryVue
   }
+  
 }
 </script>
 <style>

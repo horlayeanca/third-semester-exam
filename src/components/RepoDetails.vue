@@ -1,9 +1,10 @@
 <template>
   <div class="flex justify-center">
-    <div>
+    <div class="flex justify-center bg-teal-200 mx-auto flex-wrap">
         <div v-for="repo in repos" :key="repo.id">
             <img src="https://avatars.githubusercontent.com/u/85955573?v=4" alt="avatar">
             <div>{{ repo.created_at }}</div>
+            <div>{{ repo.name }}</div>
 
         </div>
 
