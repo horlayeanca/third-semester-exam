@@ -6,23 +6,23 @@
  
  </form>
  <div class="flex justify-center mt-5">
- <table class="w-4/5 rounded-lg overflow-auto shadow-sm">
+ <table class="w-4/5 rounded-lg overflow-auto shadow-sm border-separate border-spacing-2 border border-slate-500">
         <thead class="bg-gray-50 border-b-2 border-gray-200">
             <tr class="">
-                <th class="py-3 text-sm font-semibold tracking-wide text-center">ID</th>
-                <th class="py-3 text-sm font-semibold tracking-wide text-center">Name</th>
-                <th class="py-3 text-sm font-semibold tracking-wide text-center">URL</th>
-                <th class="py-3 text-sm font-semibold tracking-wide text-center">Language</th>
-                <th class="py-3 text-sm font-semibold tracking-wide text-center">Login</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center border border-slate-600">ID</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center border border-slate-600">Name</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center border border-slate-600">URL</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center border border-slate-600">Language</th>
+                <th class="py-3 text-sm font-semibold tracking-wide text-center border border-slate-600">Login</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">
             <tr v-for="repo in repos" :key="repo.id" class="bg-gray-300">
-            <td class="p-3 text-sm w-32">{{ repo.id }}</td>
-            <td class="p-3 text-sm text-left w-40"> <router-link    to="/repodetails" class="text-blue-700 hover:text-green-500 transition-all">{{ repo.name }} </router-link> </td>
-            <td class="p-3 text-sm text-left">{{ repo.html_url }}</td>
-            <td class="p-3 text-sm w-32">{{ repo.language }}</td>
-            <td class="p-3 text-sm w-32">{{ repo.owner.login }}</td>
+            <td class="p-3 text-sm w-32 border border-slate-700">{{ repo.id }}</td>
+            <td class="p-3 text-sm text-left w-40 border border-slate-700"> <router-link    to="/repodetails" class="text-blue-700 hover:text-green-500 transition-all">{{ repo.name }} </router-link> </td>
+            <td class="p-3 text-sm text-left border border-slate-700">{{ repo.html_url }}</td>
+            <td class="p-3 text-sm w-32 border border-slate-700">{{ repo.language }}</td>
+            <td class="p-3 text-sm w-32 border border-slate-700">{{ repo.owner.login }}</td>
             </tr>
         </tbody>
     </table>
