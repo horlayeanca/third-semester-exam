@@ -2,18 +2,16 @@
     <div class="">
         <div class="flex justify-center mx-auto border-solid border-2 mt-6 bg-blue-600 w-3/6 flex-nowrap">
        <div>
-        <p><img src="https://avatars.githubusercontent.com/u/85955573?v=4" alt="avatar" class="w-2/5 p-4 rounded-lg"></p>
-        <p>Name:</p>
+        <p><img src="https://avatars.githubusercontent.com/u/85955573?v=4" alt="avatar" class="w-2/5 p-4 rounded-2xl"></p>
+        <p>Name: {{ repo.name }}</p>
         </div>
-        <div>
-            <p>Title:</p>
-            <p>Language:</p>
-            <p>URL:</p>
-            <p>Created at:</p>
-            <p>Updated at:</p>
-            <p>Forks count:</p> 
-            <p>Default branch:</p>
-
+        <div class="w-full">
+            <p>Title: {{ repo.title }}</p>
+            <p>Language: {{ repo.language }}</p>
+            <p>URL: {{ repo.html_url }}</p>
+            <p>Created at: {{ repo.created_at }}</p>
+            <p>Forks count: {{ forks_count }}</p> 
+            <p>Default branch: {{ default_branch }}</p>
         </div>
     </div>
     </div>
@@ -31,7 +29,7 @@ export default {
         }
     },
    mounted() {
-        axios.get('https://api.github.com/users/' + this.newUsername + '/repos')
+        axios.get(`https://api.github.com/users/${this.username}/repos`)
             .then(response => {
                 this.repos = response.data
             })

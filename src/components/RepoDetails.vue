@@ -3,13 +3,11 @@
     <div class="flex justify-center bg-teal-200 mx-auto flex-wrap">
         <div v-for="repo in repos" :key="repo.id">
             <img src="https://avatars.githubusercontent.com/u/85955573?v=4" alt="avatar">
-            <div>{{ repo.created_at }}</div>
+            <div>{{ repo.title }}</div>
             <div>{{ repo.name }}</div>
-
+            <div>{{ forks_count }}</div>
         </div>
-
     </div>
-
   </div>
 </template>
 
@@ -22,7 +20,8 @@ export default {
         return {
             avatar_url: '',
             repos: null,
-            
+            forks_count: null,
+            title: null,
         }
     },
     mounted() {
@@ -30,6 +29,7 @@ export default {
         .then(response => {
             this.repos = response.data
             this.avatar_url = response.data.avatar_url
+            this.forks_count = response.data.forks_count
         })
    }
 
